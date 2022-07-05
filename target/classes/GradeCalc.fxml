@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="514.0" prefWidth="667.0" style="-fx-background-color: #fc0f03;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gradeApp.GradeCalcController">
+   <children>
+      <AnchorPane layoutX="171.0" layoutY="14.0" prefHeight="71.0" prefWidth="404.0">
+         <children>
+            <Text fill="white" layoutX="59.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Karakterkalkulator" wrappingWidth="330.93670654296875">
+               <font>
+                  <Font name="Ebrima" size="29.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <BorderPane layoutX="8.0" layoutY="71.0" prefHeight="212.0" prefWidth="650.0">
+         <top>
+            <TabPane prefHeight="436.0" prefWidth="650.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+              <tabs>
+                <Tab text="Oversikt">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="183.0" prefWidth="517.0">
+                           <children>
+                              <TableView fx:id="courseAndGradeTable" layoutX="-2.0" prefHeight="200.0" prefWidth="650.0">
+                                <columns>
+                                  <TableColumn fx:id="courseIDColumn" editable="false" prefWidth="260.0000057220459" sortable="false" text="Fagkode" />
+                                  <TableColumn fx:id="courseNameColumn" editable="false" prefWidth="211.99993896484375" sortable="false" text="Fagnavn" />
+                                  <TableColumn fx:id="gradeColumn" editable="false" prefWidth="206.39999389648438" sortable="false" text="Karakter" />
+                                </columns>
+                              </TableView>
+                              <TextField fx:id="courseIDField" layoutX="14.0" layoutY="253.0" prefHeight="26.0" prefWidth="82.0" promptText="Fagkode" />
+                              <TextField fx:id="courseNameField" layoutX="103.0" layoutY="253.0" prefHeight="26.0" prefWidth="108.0" promptText="Fagnavn" />
+                              <TextField fx:id="gradeField" layoutX="221.0" layoutY="253.0" prefHeight="26.0" prefWidth="71.0" promptText="Karakter" />
+                              <Text fill="WHITE" layoutX="14.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fagkode" wrappingWidth="56.56915283203125" />
+                              <Text fill="WHITE" layoutX="109.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fagnavn" wrappingWidth="56.56915283203125" />
+                              <Text fill="WHITE" layoutX="221.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Karakter" wrappingWidth="56.56915283203125" />
+                              <Button fx:id="handleBAction" layoutX="14.0" layoutY="352.0" mnemonicParsing="false" onAction="#handleAction" prefHeight="30.0" prefWidth="126.0" style="-fx-background-color: #009900;-fx-text-fill: white;-fx-font-weight: bold;" text="Legg til" />
+                              <Button fx:id="handleBuAction" layoutX="157.0" layoutY="352.0" mnemonicParsing="false" onAction="#calculateAction" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: #FFA500;-fx-text-fill: white;-fx-font-weight: bold;" text="Regn ut" />
+                              <Text fill="WHITE" layoutX="12.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beste karakter:" wrappingWidth="86.96917724609375" />
+                              <Text fill="WHITE" layoutX="150.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dårligste karakter:" wrappingWidth="153.36915588378906" />
+                              <TextField fx:id="saveTextField" layoutX="463.0" layoutY="279.0" prefHeight="26.0" prefWidth="164.0" promptText="Filnavn.." />
+                              <Text fill="WHITE" layoutX="462.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filnavn:" wrappingWidth="56.56915283203125" />
+                              <Button layoutX="462.0" layoutY="317.0" mnemonicParsing="false" onAction="#handleSaveAction" prefHeight="30.0" prefWidth="166.0" style="-fx-background-color: #7896B7;-fx-text-fill: white;-fx-font-weight: bold;" text="Lagre fil" />
+                              <Button layoutX="462.0" layoutY="352.0" mnemonicParsing="false" onAction="#handleLoadAction" prefHeight="30.0" prefWidth="167.0" style="-fx-background-color: #AD8A74;-fx-text-fill: white;-fx-font-weight: bold;" text="Last inn fil" />
+                              <TextArea fx:id="highestGradeTextArea" editable="false" layoutX="96.0" layoutY="306.0" prefHeight="38.0" prefWidth="32.0" />
+                              <TextArea fx:id="lowestGradeTextArea" editable="false" layoutX="249.0" layoutY="305.0" prefHeight="39.0" prefWidth="36.0" />
+                              <Button onAction="#clearData" layoutX="481.0" layoutY="204.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="166.0" style="-fx-background-color: #0989ea;-fx-text-fill: white;-fx-font-weight: bold;" text="Slett data" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Statistikk">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BarChart fx:id="gradeChart" layoutX="-4.0" prefHeight="352.0" prefWidth="660.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" fx:id="xAxis" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis fx:id="yAxis" side="LEFT" tickLabelFill="WHITE" />
+                                </yAxis>
+                              </BarChart>
+                              <Text fill="WHITE" layoutX="93.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gjennomsnitt:" wrappingWidth="128.08514404296875">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="388.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Median:" wrappingWidth="84.08514404296875">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                              <TextArea fx:id="avgTextArea" editable="false" layoutX="221.0" layoutY="347.0" prefHeight="39.0" prefWidth="47.0" />
+                              <TextArea fx:id="medianTextArea" editable="false" layoutX="472.0" layoutY="347.0" prefHeight="39.0" prefWidth="47.0" />
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
