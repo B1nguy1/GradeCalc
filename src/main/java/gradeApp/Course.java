@@ -39,7 +39,7 @@ public class Course {
     }
 
     /**
-     * Check if courseID or courseName satisfies the required length
+     * Checks if courseID or courseName satisfies the required length
      * 
      * @param courseID   the courseID
      * @param courseName the courseName

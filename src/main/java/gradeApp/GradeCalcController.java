@@ -51,15 +51,14 @@ public class GradeCalcController {
     private BarChart<String, Integer> gradeChart;
 
     @FXML
-    private CategoryAxis xAxis; // Alle de gyldige karakterene som er på X-aksen.
+    private CategoryAxis xAxis;
 
     @FXML
-    private NumberAxis yAxis; // Yakse av antall av de ulike karakterene som er gyldige på x-aksen
+    private NumberAxis yAxis;
 
     @FXML
     private void initialize() {
         try {
-            // Dette vil samsvare med de getter metodene er i UserObj klassen.
             courseIDColumn.setCellValueFactory(new PropertyValueFactory<>("courseID"));
             courseNameColumn.setCellValueFactory(new PropertyValueFactory<>("courseName"));
             gradeColumn.setCellValueFactory(new PropertyValueFactory<>("gradess"));
@@ -77,7 +76,6 @@ public class GradeCalcController {
         }
     }
 
-    // Sjekker om tekstfelter er tomme
     private boolean checkEmptyFields() {
         return !courseIDField.getText().isBlank() && !courseNameField.getText().isBlank()
                 && !gradeField.getText().isBlank();
@@ -92,8 +90,6 @@ public class GradeCalcController {
                 UserObj userObj = new UserObj(grade, course);
                 gl.addCourse(course);
                 gl.addGrades(grade);
-                // Legger til dataene i TableView som et resultat av input fra bruker som er
-                // UserObj objektet.
                 courseAndGradeTable.getItems().add(userObj);
             } else {
                 alert.setAlertType(AlertType.INFORMATION);
